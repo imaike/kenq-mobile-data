@@ -43,7 +43,7 @@ const fadeOut = keyframes`
 
 const PageContainer = styled.div`
   width: 1366px;
-  height: 1024px;
+  height: 1004px;
   background-color: steelblue;
   color: white;
   padding: 20px;

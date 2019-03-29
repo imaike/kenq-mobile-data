@@ -1,5 +1,8 @@
 {
   "adminData": {
-    "adminTitle": "Mobile Data"
+    "adminTitle": "Mobile Data",
+    "email": "myEmail@gmail.com",
+    "projectName": "myProject",
+    "totalStatements": 41
   }
 }
