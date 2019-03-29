@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+import { view } from 'react-easy-state';
+import Admin from './Admin/Admin';
+import Statements from './Statements/Statements';
+import state from './state';
 
 class App extends Component {
   render() {
+    const displayAdmin = state.getState('displayAdmin');
+    const displayStatements = state.getState('displayStatements');
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <PageContainer>
+        {displayAdmin && <Admin out={displayAdmin} />}
+        {displayStatements && <Statements out={displayStatements} />}
+      </PageContainer>
     );
   }
 }
 
-export default App;
+export default view(App);
+
+const PageContainer = styled.div`
+  background-color: black;
+  /* width: 1366px;
+  height: 1024px;
+  
+  padding: 20px; */
+`;
