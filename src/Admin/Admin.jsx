@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { view } from 'react-easy-state';
+// import PropTypes from 'prop-types';
 import state from '../state';
+
+/* eslint react/prop-types: 0 */
 
 const handleClick = () => {
   console.log('clickedStatementsButton');
@@ -10,14 +13,20 @@ const handleClick = () => {
 
 class Admin extends Component {
   render() {
+    console.log('TCL: Admin -> render -> props', this.props);
+    const { adminTitle } = this.props;
     return (
       <PageContainer>
-        <h1>Mobile Data</h1>
+        <h1>{adminTitle}</h1>
         <NavButStatements onClick={handleClick}>Statements</NavButStatements>
       </PageContainer>
     );
   }
 }
+
+// Admin.propTypes = {
+//   adminTitle: PropTypes.string,
+// };
 
 export default view(Admin);
 
@@ -55,4 +64,5 @@ const PageContainer = styled.div`
 const NavButStatements = styled.button`
   height: 30px;
   width: 150px;
+  border-radius: 3px;
 `;

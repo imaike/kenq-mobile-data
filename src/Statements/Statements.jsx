@@ -55,4 +55,5 @@ const PageContainer = styled.div`
 const NavButStatements = styled.button`
   height: 30px;
   width: 150px;
+  border-radius: 3px;
 `;

@@ -6,13 +6,16 @@ import Admin from './Admin/Admin';
 import Statements from './Statements/Statements';
 import state from './state';
 
+/* eslint react/prop-types: 0 */
+
 class App extends Component {
   render() {
     const displayAdmin = state.getState('displayAdmin');
     const displayStatements = state.getState('displayStatements');
+    const { adminData } = this.props;
     return (
       <PageContainer>
-        {displayAdmin && <Admin out={displayAdmin} />}
+        {displayAdmin && <Admin {...adminData} out={displayAdmin} />}
         {displayStatements && <Statements out={displayStatements} />}
       </PageContainer>
     );
