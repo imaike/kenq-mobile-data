@@ -1,33 +1,32 @@
-import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { view } from 'react-easy-state';
+import React, { Component } from "react";
+import styled, { keyframes } from "styled-components";
+import { view } from "react-easy-state";
 // import PropTypes from 'prop-types';
-import state from '../state';
+import state from "../state";
 
 /* eslint react/prop-types: 0 */
 
 const handleButtonClick = e => {
   console.log(e.target.id);
   const buttonId = e.target.id;
-  if (buttonId === 'StatementsButton') {
+  if (buttonId === "StatementsButton") {
     state.setState({ displayAdmin: false, displayStatements: true });
   }
-  if (buttonId === 'goButton') {
+  if (buttonId === "goButton") {
     state.setState({ displayAdmin: false, displaySort: true });
   }
 };
 
 class Admin extends Component {
   render() {
-    console.log('TCL: Admin -> render -> props', this.props);
     const { projectName, email, columnStatements } = this.props;
-    const loadStatements = localStorage.getItem('loadStatements');
-    if (loadStatements !== 'true') {
+    const loadStatements = localStorage.getItem("loadStatements");
+    if (loadStatements !== "true" || loadStatements === undefined) {
       localStorage.setItem(
-        'columnStatements',
+        "columnStatements",
         JSON.stringify(columnStatements)
       );
-      localStorage.setItem('loadStatements', 'true');
+      localStorage.setItem("loadStatements", "true");
     }
 
     return (
@@ -120,7 +119,7 @@ const PageContainer = styled.div`
   background-color: #323232;
   color: white;
   padding-top: 20px;
-  visibility: ${props => (props.out ? 'hidden' : 'visible')};
+  visibility: ${props => (props.out ? "hidden" : "visible")};
   animation: ${props => (props.out ? fadeOut : fadeIn)} 0.2s linear;
   transition: visibility 1s linear;
 `;

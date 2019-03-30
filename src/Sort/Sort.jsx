@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import './Sort.css';
-import * as cloneDeep from 'lodash/cloneDeep';
-import move from './move';
-import reorder from './reorder';
-import Headers from './Headers';
-import state from '../state';
-import SortColumn from './SortColumn';
-import getListStyleHori from './getListStyleHori';
-import getItemStyleHori from './getItemStyleHori';
-import SortCompletedMessage from './SortCompletedMessage';
-import ColumnOverloadMessage from './ColumnOverloadMessage';
-import NumberCardsSortedMessage from './NumberCardsSortedMessage';
+import React, { Component } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import "./Sort.css";
+import * as cloneDeep from "lodash/cloneDeep";
+import move from "./move";
+import reorder from "./reorder";
+import Headers from "./Headers";
+import state from "../state";
+import SortColumn from "./SortColumn";
+import getListStyleHori from "./getListStyleHori";
+import getItemStyleHori from "./getItemStyleHori";
+import SortCompletedMessage from "./SortCompletedMessage";
+import ColumnOverloadMessage from "./ColumnOverloadMessage";
+import NumberCardsSortedMessage from "./NumberCardsSortedMessage";
 // import displayStateObjectSort from "../../Utils/displayDataObjectSort";
 // import calculateTimeOnPage from '../../Utils/calculateTimeOnPage';
 
@@ -23,7 +23,7 @@ class Sort extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      draggingOverColumnId: 'column99',
+      draggingOverColumnId: "column99"
     };
   }
 
@@ -47,7 +47,7 @@ class Sort extends Component {
 
     // pull data from localStorage
     const columnStatements = JSON.parse(
-      localStorage.getItem('columnStatements')
+      localStorage.getItem("columnStatements")
     );
 
     // source and destination are objects
@@ -75,12 +75,12 @@ class Sort extends Component {
       // gather data to send to move function
       let sourceListArray;
       let destinationListArray;
-      if (source.droppableId === 'statements') {
+      if (source.droppableId === "statements") {
         sourceListArray = columnStatements.statementList;
       } else {
         sourceListArray = columnStatements.vCols[source.droppableId];
       }
-      if (destination.droppableId === 'statements') {
+      if (destination.droppableId === "statements") {
         destinationListArray = columnStatements.statementList;
       } else {
         destinationListArray = columnStatements.vCols[destination.droppableId];
@@ -127,13 +127,13 @@ class Sort extends Component {
       // }
 
       // store.dispatch.setDraggingOverColumnId('column99');
-      state.setState({ draggingOverColumnId: 'column99' });
+      state.setState({ draggingOverColumnId: "column99" });
 
       // global state updates
       // store.dispatch.setColumnStatements(columnStatements);
       state.setState({ setColumnStatements: columnStatements });
       localStorage.setItem(
-        'columnStatements',
+        "columnStatements",
         JSON.stringify(columnStatements)
       );
       // store.dispatch.setSortResults(sortResults);
@@ -155,22 +155,23 @@ class Sort extends Component {
       sortCompleteText,
       nextButtonText,
       horiCardMinHeight,
-      headerColorsArray,
+      headerColorsArray
     } = this.props;
 
     const { sortCharacteristics, totalStatements } = this.props;
+    console.log("TCL: Sort -> render -> this.props", this.props);
     const changeColumnHeaderColor = columnId => {
       this.setState({ draggingOverColumnId: columnId });
     };
 
     // pull data from localStorage
     const columnStatements = JSON.parse(
-      localStorage.getItem('columnStatements')
+      localStorage.getItem("columnStatements")
     );
 
     const statements = columnStatements.statementList;
     // const overloadedColumn = store.getState().overloadedColumn;
-    const overloadedColumn = state.getState('overloadedColumn');
+    const overloadedColumn = state.getState("overloadedColumn");
 
     // MAP out SORT COLUMNS component before render
     // code inside render so that column lists update automatically
@@ -178,7 +179,7 @@ class Sort extends Component {
     const qSortHeaderNumbers = [...sortCharacteristics.qSortHeaderNumbers];
     const qSortPattern = [...sortCharacteristics.qSortPattern];
     const columns = qSortHeaders.map((value, index, highlightedColHeader) => {
-      const columnId = 'column' + qSortHeaders[index];
+      const columnId = "column" + qSortHeaders[index];
       const sortValue = qSortHeaderNumbers[index];
 
       return (

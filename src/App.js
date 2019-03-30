@@ -24,10 +24,11 @@ class App extends Component {
       sortCharacteristics,
       sortPageData,
     } = this.props;
+		console.log("TCL: App -> render -> this.props", this.props)
 
     return (
       <PageContainer>
-        {displayAdmin && <Admin {...adminData} out={displayAdmin} />}
+        {displayAdmin && <Admin {...adminData} columnStatements={columnStatements} out={displayAdmin} />}
         {displayStatements && (
           <Statements
             out={displayStatements}
@@ -45,7 +46,7 @@ class App extends Component {
           <Sort
             {...sortPageData}
             out={displaySort}
-            sortCharacteristics={sortCharacteristics}
+            sortPageData={sortPageData}
           />
         )}
       </PageContainer>
