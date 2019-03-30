@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { view } from 'react-easy-state';
 import Admin from './Admin/Admin';
 import Statements from './Statements/Statements';
+import Presort from './Presort/Presort';
 import state from './state';
 
 /* eslint react/prop-types: 0 */
@@ -11,12 +12,25 @@ import state from './state';
 class App extends Component {
   render() {
     const displayAdmin = state.getState('displayAdmin');
+    const displayPresort = state.getState('displayPresort');
     const displayStatements = state.getState('displayStatements');
-    const { adminData } = this.props;
+    const { adminData, columnStatements, preSortData } = this.props;
     return (
       <PageContainer>
         {displayAdmin && <Admin {...adminData} out={displayAdmin} />}
-        {displayStatements && <Statements out={displayStatements} />}
+        {displayStatements && (
+          <Statements
+            out={displayStatements}
+            columnStatements={columnStatements}
+          />
+        )}
+        {displayPresort && (
+          <Presort
+            {...preSortData}
+            out={displayPresort}
+            columnStatements={columnStatements}
+          />
+        )}
       </PageContainer>
     );
   }

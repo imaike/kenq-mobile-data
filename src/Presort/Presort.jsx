@@ -1,38 +1,39 @@
-import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { view } from 'react-easy-state';
+import React, { Component } from 'react';
+import StatementList from './StatementList';
 import state from '../state';
-
 /* eslint react/prop-types: 0 */
 
 const handleClick = () => {
   console.log('clicked');
-  state.setState({ displayAdmin: true, displayStatements: false });
+  state.setState({ displayAdmin: true, displayPresort: false });
 };
 
-class Statements extends Component {
+class PreSort extends Component {
   render() {
-    const { columnStatements } = this.props;
-    const { statementList } = columnStatements;
-    console.log('TCL: Statements -> render -> statementList', columnStatements);
+    const forceUpdate = () => {
+      this.forceUpdate();
+    };
+    const { titleText, nextButtonText, columnStatements } = this.props;
 
     return (
       <PageContainer>
-        <HeaderDiv>
-          <h1>Statements</h1>
-          <NavButStatements onClick={handleClick}>Return</NavButStatements>
-        </HeaderDiv>
-        <ol>
-          {statementList.map(item => (
-            <li key={item.statementNum}>{item.statement}</li>
-          ))}
-        </ol>
+        <TitleDiv>
+          <div>{titleText}</div>
+          <div>
+            <NavButStatements onClick={handleClick}>Next</NavButStatements>
+          </div>
+        </TitleDiv>
+        <StatementList
+          columnStatements={columnStatements}
+          forceUpdate={forceUpdate}
+        />
       </PageContainer>
     );
   }
 }
 
-export default view(Statements);
+export default PreSort;
 
 const fadeIn = keyframes`
   from {
@@ -59,35 +60,42 @@ const PageContainer = styled.div`
   height: 1004px;
   background-color: #323232;
   color: whitesmoke;
-  padding: 20px;
   visibility: ${props => (props.out ? 'hidden' : 'visible')};
   animation: ${props => (props.out ? fadeOut : fadeIn)} 0.2s linear;
   transition: visibility 1s linear;
 `;
 
+const TitleDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 0;
+  width: 100%;
+  padding-left: 50px;
+  height: 120px;
+  background: steelblue;
+  text-align: center;
+  color: white;
+  font-size: 35px;
+`;
+
 const NavButStatements = styled.button`
-  position: relative;
   font-family: HelveticaNeue-CondensedBlack, Arial, Helvetica, sans-serif;
   appearance: none;
   height: 40px;
   width: 100px;
-  margin-left: 45px;
+  font-size: 25px;
+  margin-left: 845px;
   margin-top: 20px;
-  color: #323232;
-  background: #1985c5;
+  color: whitesmoke;
+  background: #323232;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 0px solid #666;
-  font-size: 150%;
   text-align: center;
   line-height: 1em;
 
   &:active {
     background-color: #146a9d;
   }
-`;
-
-const HeaderDiv = styled.div`
-  display: flex;
-  align-items: end;
 `;

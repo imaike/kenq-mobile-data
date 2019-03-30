@@ -7,9 +7,13 @@ import state from '../state';
 /* eslint react/prop-types: 0 */
 
 const handleButtonClick = e => {
+  console.log(e.target.id);
   const buttonId = e.target.id;
   if (buttonId === 'StatementsButton') {
     state.setState({ displayAdmin: false, displayStatements: true });
+  }
+  if (buttonId === 'goButton') {
+    state.setState({ displayAdmin: false, displayPresort: true });
   }
 };
 
@@ -55,8 +59,8 @@ class Admin extends Component {
             />
           </label>
         </Column3>
-        <BeginQsortButton>
-          <p>Q</p>
+        <BeginQsortButton id="goButton" onClick={handleButtonClick}>
+          Q
         </BeginQsortButton>
         <ResultsSection>
           <ResultsTitle>Results</ResultsTitle>
@@ -146,6 +150,10 @@ const Column1Button = styled.button`
   font-size: 300%;
   text-align: center;
   line-height: 1em;
+
+  &:active {
+    background-color: #146a9d;
+  }
 `;
 
 const Column2Button = styled.button`
@@ -165,6 +173,10 @@ const Column2Button = styled.button`
   font-size: 300%;
   text-align: center;
   line-height: 1.05em;
+
+  &:active {
+    background-color: #146a9d;
+  }
 `;
 
 const BeginQsortButton = styled.button`
@@ -174,8 +186,6 @@ const BeginQsortButton = styled.button`
   margin-left: 5px;
   width: 250px;
   margin-top: 2px;
-  padding-top: 50px;
-  padding-bottom: 0px;
   height: 250px;
   background: #55b262;
   color: #323232;
@@ -186,9 +196,9 @@ const BeginQsortButton = styled.button`
   grid-row-start: 1;
   font-size: 1300%;
   text-align: center;
-  line-height: 1.05em;
   user-select: none;
   border: 0px solid black;
+  outline: none;
 
   p {
     margin: 0;
