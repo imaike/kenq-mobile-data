@@ -9,6 +9,11 @@ const handleClick = () => {
   state.setState({ displayAdmin: true, displayPresort: false });
 };
 
+const handleClick2 = () => {
+  console.log('clicked');
+  state.setState({ displaySort: true, displayPresort: false });
+};
+
 class PreSort extends Component {
   render() {
     const forceUpdate = () => {
@@ -22,6 +27,7 @@ class PreSort extends Component {
           <div>{titleText}</div>
           <div>
             <NavButStatements onClick={handleClick}>Next</NavButStatements>
+            <NavButStatements onClick={handleClick2}>Sort</NavButStatements>
           </div>
         </TitleDiv>
         <StatementList

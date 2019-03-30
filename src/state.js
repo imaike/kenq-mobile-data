@@ -26,4 +26,30 @@ export default store({
   displaySurvey: false,
 
   /* Admin */
+
+  /* Sort */
+  result: [],
+  statements: [],
+  columnN1: [],
+  draggingOverColumnId: 'column99',
+  sortResults: [], // array of objects
+  sortResultsText: '',
+  currentSortValue: '',
+  columnOverload: false,
+  overloadedColumn: '',
+  isSortingCards: true,
+  sortCompleted: false,
+  numSortedStatements: 0,
+  columnId: '',
+  columnList: '',
+  columnStatements: {},
+  sortPageDurationCumulative: '',
+  sortPageDurationFormatted: '',
+  sortPageLastAccess: '',
+
+  /* Post-Sort */
+  statementCommentsObj: {},
+  postSortPageLastAccess: '',
+  postSortPageDurationCumulative: '',
+  postSortPageDurationFormatted: '',
 });

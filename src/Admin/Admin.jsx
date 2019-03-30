@@ -13,14 +13,23 @@ const handleButtonClick = e => {
     state.setState({ displayAdmin: false, displayStatements: true });
   }
   if (buttonId === 'goButton') {
-    state.setState({ displayAdmin: false, displayPresort: true });
+    state.setState({ displayAdmin: false, displaySort: true });
   }
 };
 
 class Admin extends Component {
   render() {
     console.log('TCL: Admin -> render -> props', this.props);
-    const { projectName, email } = this.props;
+    const { projectName, email, columnStatements } = this.props;
+    const loadStatements = localStorage.getItem('loadStatements');
+    if (loadStatements !== 'true') {
+      localStorage.setItem(
+        'columnStatements',
+        JSON.stringify(columnStatements)
+      );
+      localStorage.setItem('loadStatements', 'true');
+    }
+
     return (
       <PageContainer>
         <Column1>
