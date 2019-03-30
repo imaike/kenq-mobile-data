@@ -1,10 +1,10 @@
-import React from "react";
-import "./StatementList.css";
-import state from "../state";
+import React from 'react';
+import './StatementList.css';
+import state from '../state';
 // import { useStore } from "easy-peasy";
-import NegativeButton from "./NegativeButton";
-import PositiveButton from "./PositiveButton";
-import UncertainButton from "./UncertainButton";
+import NegativeButton from './NegativeButton';
+import PositiveButton from './PositiveButton';
+import UncertainButton from './UncertainButton';
 // import { useStore } from "easy-peasy";
 
 /* eslint react/prop-types: 0 */
@@ -14,28 +14,28 @@ const handleClickNewButton = (e, forceUpdate, columnStatements) => {
   const statements2 = columnStatements.statementList;
   const statements = statements2.slice();
   // let random = Math.floor(Math.random() * (9 - 0 + 1)) + 0;
-  const idArray = e.target.id.split("-");
+  const idArray = e.target.id.split('-');
   const colorType = idArray[0];
   const id = idArray[1];
-  if (colorType === "green") {
-    statements[id].cardColor = "greenSortCard";
-    statements[id].divColor = "isPositiveStatement";
+  if (colorType === 'green') {
+    statements[id].cardColor = 'greenSortCard';
+    statements[id].divColor = 'isPositiveStatement';
     statements[id].sortValue = 111;
     statements[id].greenChecked = true;
     statements[id].pinkChecked = false;
     statements[id].yellowChecked = false;
   }
-  if (colorType === "yellow") {
-    statements[id].cardColor = "yellowSortCard";
-    statements[id].divColor = "isUncertainStatement";
+  if (colorType === 'yellow') {
+    statements[id].cardColor = 'yellowSortCard';
+    statements[id].divColor = 'isUncertainStatement';
     statements[id].pinkChecked = false;
     statements[id].yellowChecked = true;
     statements[id].greenChecked = false;
     statements[id].sortValue = 222;
   }
-  if (colorType === "pink") {
-    statements[id].cardColor = "pinkSortCard";
-    statements[id].divColor = "isNegativeStatement";
+  if (colorType === 'pink') {
+    statements[id].cardColor = 'pinkSortCard';
+    statements[id].divColor = 'isNegativeStatement';
     statements[id].pinkChecked = true;
     statements[id].yellowChecked = false;
     statements[id].greenChecked = false;
@@ -43,7 +43,7 @@ const handleClickNewButton = (e, forceUpdate, columnStatements) => {
   }
   columnStatements.statements = [...statements];
   //   store.dispatch.setColumnStatements(columnStatements);
-  sessionStorage.setItem("columnStatements", JSON.stringify(columnStatements));
+  sessionStorage.setItem('columnStatements', JSON.stringify(columnStatements));
   forceUpdate();
 };
 
@@ -67,7 +67,7 @@ function StatementList(props) {
         >
           <div
             className="is-pulled-left"
-            style={{ display: "flex", marginRight: 25 }}
+            style={{ display: 'flex', marginRight: 25 }}
           >
             <NegativeButton
               index={index}

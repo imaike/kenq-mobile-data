@@ -1,13 +1,13 @@
 {
-  "main.css": "/imaike/kenq-mobile-data/static/css/main.ef61453d.chunk.css",
-  "main.js": "/imaike/kenq-mobile-data/static/js/main.ec9f66b2.chunk.js",
-  "main.js.map": "/imaike/kenq-mobile-data/static/js/main.ec9f66b2.chunk.js.map",
-  "runtime~main.js": "/imaike/kenq-mobile-data/static/js/runtime~main.be76800c.js",
-  "runtime~main.js.map": "/imaike/kenq-mobile-data/static/js/runtime~main.be76800c.js.map",
-  "static/js/2.c4e6c789.chunk.js": "/imaike/kenq-mobile-data/static/js/2.c4e6c789.chunk.js",
-  "static/js/2.c4e6c789.chunk.js.map": "/imaike/kenq-mobile-data/static/js/2.c4e6c789.chunk.js.map",
-  "index.html": "/imaike/kenq-mobile-data/index.html",
-  "precache-manifest.684e39ad333098bb95b032d7ce070b64.js": "/imaike/kenq-mobile-data/precache-manifest.684e39ad333098bb95b032d7ce070b64.js",
-  "service-worker.js": "/imaike/kenq-mobile-data/service-worker.js",
-  "static/css/main.ef61453d.chunk.css.map": "/imaike/kenq-mobile-data/static/css/main.ef61453d.chunk.css.map"
+  "main.css": "./static/css/main.ef61453d.chunk.css",
+  "main.js": "./static/js/main.82f76f34.chunk.js",
+  "main.js.map": "./static/js/main.82f76f34.chunk.js.map",
+  "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+  "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+  "static/js/2.24948271.chunk.js": "./static/js/2.24948271.chunk.js",
+  "static/js/2.24948271.chunk.js.map": "./static/js/2.24948271.chunk.js.map",
+  "index.html": "./index.html",
+  "precache-manifest.0213cbe77d911cc56ed074dd1a551d70.js": "./precache-manifest.0213cbe77d911cc56ed074dd1a551d70.js",
+  "service-worker.js": "./service-worker.js",
+  "static/css/main.ef61453d.chunk.css.map": "./static/css/main.ef61453d.chunk.css.map"
 }

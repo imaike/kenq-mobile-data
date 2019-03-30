@@ -27,7 +27,11 @@ class Admin extends Component {
           <Column1Button id="emailButton" onClick={handleButtonClick}>
             Email Results
           </Column1Button>
-          <Column1Button id="informationButton" onClick={handleButtonClick}>
+          <Column1Button
+            id="informationButton"
+            style={{ paddingLeft: 10 }}
+            onClick={handleButtonClick}
+          >
             Information
           </Column1Button>
         </Column1>
@@ -35,7 +39,11 @@ class Admin extends Component {
           <Column2Button id="deleteButton" onClick={handleButtonClick}>
             Delete Data
           </Column2Button>
-          <Column2Button id="StatementsButton" onClick={handleButtonClick}>
+          <Column2Button
+            id="StatementsButton"
+            style={{ paddingLeft: 10 }}
+            onClick={handleButtonClick}
+          >
             Statements
           </Column2Button>
         </Column2>
@@ -60,7 +68,7 @@ class Admin extends Component {
           </label>
         </Column3>
         <BeginQsortButton id="goButton" onClick={handleButtonClick}>
-          Q
+          Start <br /> Q <br /> Sort
         </BeginQsortButton>
         <ResultsSection>
           <ResultsTitle>Results</ResultsTitle>
@@ -148,8 +156,8 @@ const Column1Button = styled.button`
   border-radius: 5px;
   border: 0px solid #666;
   font-size: 300%;
-  text-align: center;
   line-height: 1em;
+  outline: none;
 
   &:active {
     background-color: #146a9d;
@@ -173,6 +181,7 @@ const Column2Button = styled.button`
   font-size: 300%;
   text-align: center;
   line-height: 1.05em;
+  outline: none;
 
   &:active {
     background-color: #146a9d;
@@ -194,19 +203,11 @@ const BeginQsortButton = styled.button`
   border-radius: 5px;
   grid-column-start: 4;
   grid-row-start: 1;
-  font-size: 1300%;
+  font-size: 50px;
   text-align: center;
   user-select: none;
   border: 0px solid black;
   outline: none;
-
-  p {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   &:active {
     background-color: #448e4e;
