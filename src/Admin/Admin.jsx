@@ -19,7 +19,20 @@ const handleButtonClick = e => {
 
 class Admin extends Component {
   render() {
-    const { projectName, email, columnStatements } = this.props;
+    const {
+      projectName,
+      email,
+      columnStatements,
+      sortCharacteristics
+    } = this.props;
+
+    console.log("TCL: Admin -> render -> this.props", this.props);
+
+    console.log(
+      "TCL: Admin -> render -> sortCharacteristics",
+      sortCharacteristics
+    );
+
     const loadStatements = localStorage.getItem("loadStatements");
     if (loadStatements !== "true" || loadStatements === undefined) {
       localStorage.setItem(
@@ -28,6 +41,8 @@ class Admin extends Component {
       );
       localStorage.setItem("loadStatements", "true");
     }
+
+    state.setState({ sortCharacteristics: sortCharacteristics });
 
     return (
       <PageContainer>

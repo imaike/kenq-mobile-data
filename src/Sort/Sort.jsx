@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./Sort.css";
 import * as cloneDeep from "lodash/cloneDeep";
+import { view } from "react-easy-state";
 import move from "./move";
 import reorder from "./reorder";
 import Headers from "./Headers";
@@ -149,17 +150,24 @@ class Sort extends Component {
   }; // end of dragEnd helper function
 
   render() {
+    console.log("TCL: Sort -> render -> this.props", this.props);
+
     const {
       cardHeight,
       columnWidth,
       sortCompleteText,
       nextButtonText,
       horiCardMinHeight,
-      headerColorsArray
+      headerColorsArray,
+      sortCharacteristics,
+      totalStatements
     } = this.props;
 
-    const { sortCharacteristics, totalStatements } = this.props;
-    console.log("TCL: Sort -> render -> this.props", this.props);
+    // const { sortCharacteristics, totalStatements } = this.props;
+    console.log(
+      "TCL: Sort -> render -> sortCharacteristics",
+      sortCharacteristics
+    );
     const changeColumnHeaderColor = columnId => {
       this.setState({ draggingOverColumnId: columnId });
     };
@@ -274,4 +282,4 @@ class Sort extends Component {
   }
 }
 
-export default Sort;
+export default view(Sort);

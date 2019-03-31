@@ -1,9 +1,10 @@
-import './Sort.css';
-import React from 'react';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
-import state from '../state';
-import getItemStyle from './getItemStyle';
-import getListStyle from './getListStyle';
+import "./Sort.css";
+import React from "react";
+import { Droppable, Draggable } from "react-beautiful-dnd";
+import state from "../state";
+import getItemStyle from "./getItemStyle";
+import getListStyle from "./getListStyle";
+import { view } from "react-easy-state";
 
 /* eslint react/prop-types: 0 */
 
@@ -15,7 +16,7 @@ class SortColumn extends React.Component {
       cardHeight,
       columnId,
       sortValue,
-      columnStatementsArray,
+      columnStatementsArray
     } = this.props;
 
     // had to push column sort value to state because didn't want to edit dnd library result object
@@ -68,4 +69,4 @@ class SortColumn extends React.Component {
   }
 }
 
-export default SortColumn;
+export default view(SortColumn);
