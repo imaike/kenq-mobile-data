@@ -21,14 +21,19 @@ class App extends Component {
       adminData,
       columnStatements,
       preSortData,
-      sortCharacteristics,
       sortPageData,
     } = this.props;
-		console.log("TCL: App -> render -> this.props", this.props)
 
     return (
       <PageContainer>
-        {displayAdmin && <Admin {...adminData} columnStatements={columnStatements} out={displayAdmin} />}
+        {displayAdmin && (
+          <Admin
+            {...adminData}
+            sortCharacteristics={sortPageData.sortCharacteristics}
+            columnStatements={columnStatements}
+            out={displayAdmin}
+          />
+        )}
         {displayStatements && (
           <Statements
             out={displayStatements}

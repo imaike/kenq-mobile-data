@@ -7,8 +7,6 @@ const checkForColumnOverload = (
 ) => {
   // const sortCharacteristics = store.getState().sortCharacteristics;
   const sortCharacteristics = state.getState('sortCharacteristics');
-  console.log(JSON.stringify(state, null, 2));
-	console.log("TCL: sortCharacteristics", sortCharacteristics)
 
   const qSortPattern = [...sortCharacteristics.qSortPattern];
 
