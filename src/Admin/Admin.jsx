@@ -13,7 +13,7 @@ const handleButtonClick = e => {
     state.setState({ displayAdmin: false, displayStatements: true });
   }
   if (buttonId === 'goButton') {
-    state.setState({ displayAdmin: false, displaySort: true });
+    state.setState({ displayAdmin: false, displayPresort: true });
   }
 };
 

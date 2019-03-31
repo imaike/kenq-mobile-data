@@ -19,7 +19,8 @@ class PreSort extends Component {
     const forceUpdate = () => {
       this.forceUpdate();
     };
-    const { titleText, nextButtonText, columnStatements } = this.props;
+    // nextButtonText
+    const { titleText, columnStatements } = this.props;
 
     return (
       <PageContainer>

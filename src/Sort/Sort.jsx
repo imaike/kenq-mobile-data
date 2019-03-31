@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './Sort.css';
-import * as cloneDeep from 'lodash/cloneDeep';
+// import * as cloneDeep from 'lodash/cloneDeep';
 import { view } from 'react-easy-state';
 import move from './move';
 import reorder from './reorder';
@@ -13,12 +13,10 @@ import getItemStyleHori from './getItemStyleHori';
 import SortCompletedMessage from './SortCompletedMessage';
 import ColumnOverloadMessage from './ColumnOverloadMessage';
 import NumberCardsSortedMessage from './NumberCardsSortedMessage';
-// import displayStateObjectSort from "../../Utils/displayDataObjectSort";
-// import calculateTimeOnPage from '../../Utils/calculateTimeOnPage';
 
 /* eslint react/prop-types: 0 */
 
-let startTime;
+// let startTime;
 
 class Sort extends Component {
   constructor(props) {
@@ -29,7 +27,7 @@ class Sort extends Component {
   }
 
   componentDidMount() {
-    startTime = Date.now();
+    // startTime = Date.now();
   }
 
   componentWillUnmount() {
@@ -99,59 +97,21 @@ class Sort extends Component {
         sortCharacteristics
       );
 
-      // sortValue = sort value after drop
-      // let sortValue = store.getState().currentSortValue;
-
-      // let draggableId = result.draggableId;
-
-      // let statementList = this.statementList;
-      // console.log("TCL: Sort -> statementList", this);
-
-      // let sortResults = store.getState().sortResults || this.statementList;
-      // console.log("TCL: Sort -> sortResults", sortResults);
-
-      // // insert sort value into sortResults array of statement objects
-      // for (let i = 0; i < sortResults.length; i++) {
-      //   if (sortResults[i].id === draggableId) {
-      //     sortResults[i].sortValue = sortValue;
-      //     break;
-      //   }
-      // }
-      // let sortResultsText = "";
-      // for (let j = 0; j < sortResults.length; j++) {
-      //   let sortValue = sortResults[j].sortValue || "99";
-
-      //   sortResultsText = sortResultsText + sortValue;
-      //   if (j !== sortResults.length - 1) {
-      //     sortResultsText = sortResultsText + "|";
-      //   }
-      // }
-
       // store.dispatch.setDraggingOverColumnId('column99');
       state.setState({ draggingOverColumnId: 'column99' });
 
       // global state updates
-      // store.dispatch.setColumnStatements(columnStatements);
       state.setState({ setColumnStatements: columnStatements });
       localStorage.setItem(
         'columnStatements',
         JSON.stringify(columnStatements)
       );
-      // store.dispatch.setSortResults(sortResults);
-      // localStorage.setItem("sortResults", JSON.stringify(sortResults));
-      // store.dispatch.setSortResultsText(sortResultsText);
-      // localStorage.setItem(
-      // "sortResultsText",
-      // JSON.stringify(sortResultsText)
-      // );
 
       this.forceUpdate();
     }
   }; // end of dragEnd helper function
 
   render() {
-    console.log('TCL: Sort -> render -> this.props', this.props);
-
     const {
       cardHeight,
       columnWidth,
@@ -164,10 +124,6 @@ class Sort extends Component {
     } = this.props;
 
     // const { sortCharacteristics, totalStatements } = this.props;
-    console.log(
-      'TCL: Sort -> render -> sortCharacteristics',
-      sortCharacteristics
-    );
     const changeColumnHeaderColor = columnId => {
       this.setState({ draggingOverColumnId: columnId });
     };

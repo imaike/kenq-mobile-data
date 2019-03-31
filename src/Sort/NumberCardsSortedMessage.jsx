@@ -9,11 +9,9 @@ import state from '../state';
 const NumberCardsSortedMessage = props => {
   // const numSortedStatements = useStore(state => state.numSortedStatements);
   const numSortedStatements = state.getState('numSortedStatements');
-  console.log('TCL: numSortedStatements', numSortedStatements);
 
   // const isSortingCards = useStore(state => state.isSortingCards);
   const isSortingCards = state.getState('isSortingCards');
-  console.log('TCL: isSortingCards', isSortingCards);
 
   if (isSortingCards) {
     return (
