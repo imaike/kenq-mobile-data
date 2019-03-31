@@ -2,7 +2,9 @@ import React from 'react';
 // import styled from "styled-components";
 // import { useStore } from 'easy-peasy';
 // import { Link } from 'react-router-dom';
+import { view } from 'react-easy-state';
 import state from '../state';
+
 // eslint-disable-next-line react/button-has-type
 /* eslint react/prop-types: 0 */
 
@@ -23,6 +25,6 @@ const SortCompletedMessageBox = props => {
   return null;
 };
 
-export default SortCompletedMessageBox;
+export default view(SortCompletedMessageBox);
 
 // const CardsSortedDiv = styled.div``;

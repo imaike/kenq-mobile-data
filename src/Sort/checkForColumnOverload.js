@@ -43,7 +43,7 @@ const checkForColumnOverload = (
   });
 
   // store.dispatch.setNumSortedStatements(numSortedStatements);
-  state.setState({ setNumSortedStatements: numSortedStatements });
+  state.setState({ numSortedStatements });
 
   if (forcedSorts === false) {
     if (numSortedStatements === totalStatements) {

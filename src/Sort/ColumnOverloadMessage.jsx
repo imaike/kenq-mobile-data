@@ -1,6 +1,7 @@
 import React from 'react';
 // import styled from "styled-components";
 // import { useStore } from "easy-peasy";
+import { view } from 'react-easy-state';
 import state from '../state';
 
 const ColumnOverloadMessage = props => {
@@ -17,4 +18,4 @@ const ColumnOverloadMessage = props => {
   return null;
 };
 
-export default ColumnOverloadMessage;
+export default view(ColumnOverloadMessage);

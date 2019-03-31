@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { view } from 'react-easy-state';
 import headersDivStyle from './headersDivStyle';
 import state from '../state';
 
@@ -36,6 +37,6 @@ const Headers = props => {
   );
 };
 
-export default Headers;
+export default view(Headers);
 
 const HeaderDiv = styled.div``;
