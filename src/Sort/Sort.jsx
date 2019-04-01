@@ -3,6 +3,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './Sort.css';
 // import * as cloneDeep from 'lodash/cloneDeep';
 import { view } from 'react-easy-state';
+// import styled, { keyframes } from 'styled-components';
 import move from './move';
 import reorder from './reorder';
 import Headers from './Headers';
@@ -22,7 +23,7 @@ class Sort extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      draggingOverColumnId: 'column99'
+      draggingOverColumnId: 'column99',
     };
   }
 
@@ -143,7 +144,7 @@ class Sort extends Component {
     const qSortHeaderNumbers = [...sortCharacteristics.qSortHeaderNumbers];
     const qSortPattern = [...sortCharacteristics.qSortPattern];
     const columns = qSortHeaders.map((value, index, highlightedColHeader) => {
-      const columnId = 'column' + qSortHeaders[index];
+      const columnId = `column${qSortHeaders[index]}`;
       const sortValue = qSortHeaderNumbers[index];
 
       return (
@@ -226,9 +227,7 @@ class Sort extends Component {
                 sortCompleteText={sortCompleteText}
                 nextButtonText={nextButtonText}
               />
-
               <ColumnOverloadMessage overloadedColumn={overloadedColumn} />
-
               <NumberCardsSortedMessage totalStatements={totalStatements} />
             </div>
           </div>

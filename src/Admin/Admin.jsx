@@ -174,6 +174,7 @@ const Column1Button = styled.button`
   font-size: 300%;
   line-height: 1em;
   outline: none;
+  -webkit-user-select: none;
 
   &:active {
     background-color: #146a9d;
@@ -198,6 +199,7 @@ const Column2Button = styled.button`
   text-align: center;
   line-height: 1.05em;
   outline: none;
+  -webkit-user-select: none;
 
   &:active {
     background-color: #146a9d;
