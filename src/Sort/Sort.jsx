@@ -168,14 +168,14 @@ class Sort extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="rootDiv">
-          <Headers
+          {/* <Headers
             className="hoverBlue"
             qSortHeaders={qSortHeaders}
             qSortHeaderNumbers={qSortHeaderNumbers}
             columnWidth={columnWidth}
             headerColorsArray={headerColorsArray}
             highlightedColHeader={this.state.draggingOverColumnId}
-          />
+          /> */}
           {columns}
           <div className="sortFooter">
             <div className="cardSlider">

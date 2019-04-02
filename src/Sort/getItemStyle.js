@@ -2,7 +2,7 @@ const getItemStyle = (isDragging, draggableStyle, cardWidth, cardHeight) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: 'none',
   padding: `0 2px 0 2px`,
-  margin: `0 2px 8px 2px`,
+  margin: `0 2px 8px 3px`,
   lineHeight: `1em`,
   fontSize: 15,
   height: cardHeight,

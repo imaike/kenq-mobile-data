@@ -1,10 +1,11 @@
-import "./Sort.css";
-import React from "react";
-import { Droppable, Draggable } from "react-beautiful-dnd";
-import state from "../state";
-import getItemStyle from "./getItemStyle";
-import getListStyle from "./getListStyle";
-import { view } from "react-easy-state";
+import './Sort.css';
+import React from 'react';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { view } from 'react-easy-state';
+import styled from 'styled-components';
+import state from '../state';
+import getItemStyle from './getItemStyle';
+import getListStyle from './getListStyle';
 
 /* eslint react/prop-types: 0 */
 
@@ -16,7 +17,8 @@ class SortColumn extends React.Component {
       cardHeight,
       columnId,
       sortValue,
-      columnStatementsArray
+      columnStatementsArray,
+      qSortHeaderNumber,
     } = this.props;
 
     // had to push column sort value to state because didn't want to edit dnd library result object
@@ -41,6 +43,7 @@ class SortColumn extends React.Component {
                 columnWidth
               )}
             >
+              <HeaderDiv>{qSortHeaderNumber}</HeaderDiv>
               {columnStatementsArray.map((item, index) => (
                 <Draggable key={item.id} draggableId={item.id} index={index}>
                   {(provided, snapshot) => (
@@ -70,3 +73,10 @@ class SortColumn extends React.Component {
 }
 
 export default view(SortColumn);
+
+const HeaderDiv = styled.div`
+  text-align: center;
+  border: 1px solid black;
+  margin-bottom: 7px;
+  font-size: 25px;
+`;

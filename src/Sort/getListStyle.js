@@ -28,8 +28,8 @@ const getListStyle = (isDraggingOver, props, forcedSorts, columnWidth) => {
       : 'orange',
     padding: `3px 5px 0px 5px`,
 
-    minWidth: columnWidth + 17,
-    marginTop: 50,
+    minWidth: columnWidth + 13,
+    marginTop: 0,
     marginRight: 0,
     minHeight: props.minHeight,
     marginBottom: 220,
