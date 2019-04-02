@@ -6,7 +6,7 @@ import { view } from 'react-easy-state';
 // import styled, { keyframes } from 'styled-components';
 import move from './move';
 import reorder from './reorder';
-import Headers from './Headers';
+// import Headers from './Headers';
 import state from '../state';
 import SortColumn from './SortColumn';
 import getListStyleHori from './getListStyleHori';
@@ -119,7 +119,7 @@ class Sort extends Component {
       sortCompleteText,
       nextButtonText,
       horiCardMinHeight,
-      headerColorsArray,
+      columnColorsArray,
       sortCharacteristics,
       totalStatements,
     } = this.props;
@@ -146,6 +146,8 @@ class Sort extends Component {
     const columns = qSortHeaders.map((value, index, highlightedColHeader) => {
       const columnId = `column${qSortHeaders[index]}`;
       const sortValue = qSortHeaderNumbers[index];
+      const columnColor = columnColorsArray[index];
+      // columnColors -> redBase #ff7f7f greenBase #32cd32
 
       return (
         <SortColumn
@@ -158,6 +160,7 @@ class Sort extends Component {
           columnWidth={columnWidth}
           cardHeight={cardHeight}
           sortValue={sortValue}
+          columnColor={columnColor}
           qSortHeaderNumber={qSortHeaderNumbers[index]}
           changeColumnHeaderColor={changeColumnHeaderColor}
         />

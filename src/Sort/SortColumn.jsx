@@ -19,6 +19,7 @@ class SortColumn extends React.Component {
       sortValue,
       columnStatementsArray,
       qSortHeaderNumber,
+      columnColor,
     } = this.props;
 
     // had to push column sort value to state because didn't want to edit dnd library result object
@@ -27,9 +28,7 @@ class SortColumn extends React.Component {
       <Droppable droppableId={columnId}>
         {(provided, snapshot) => {
           if (snapshot.isDraggingOver) {
-            // store.dispatch.setDraggingOverColumnId(this.props.columnId);
             state.setState({ draggingOverColumnId: columnId });
-            // store.dispatch.setCurrentSortValue(this.props.sortValue);
             state.setState({ currentSortValue: sortValue });
           }
 
@@ -40,7 +39,8 @@ class SortColumn extends React.Component {
                 snapshot.isDraggingOver,
                 this.props,
                 forcedSorts,
-                columnWidth
+                columnWidth,
+                columnColor
               )}
             >
               <HeaderDiv>{qSortHeaderNumber}</HeaderDiv>

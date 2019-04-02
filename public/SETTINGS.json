@@ -15,7 +15,7 @@
     "sortCompleteText": "Sort Complete!",
     "nextButtonText": "Next",
     "sortedText": "cards sorted",
-    "columnWidth": 120,
+    "columnWidth": 100,
     "cardHeight": 120,
     "horiCardMinHeight": 100,
     "totalStatements": 33,
@@ -29,6 +29,17 @@
       "white",
       "white",
       "white"
+    ],
+    "columnColorsArray": [
+      "#ffbfbf",
+      "#ffcbcb",
+      "#ffd8d8",
+      "#ffe5e5",
+      "#e4e4e4",
+      "#d6f5d6",
+      "#c1f0c1",
+      "#adebad",
+      "#98E698"
     ],
     "sortCharacteristics": {
       "qSortPattern": [2, 3, 4, 5, 5, 5, 4, 3, 2],
@@ -85,8 +96,7 @@
       "column3": [],
       "column4": []
     },
-    "statementList": [
-      {
+    "statementList": [{
         "id": "s1",
         "statementNum": 1,
         "divColor": "notSet",
@@ -290,42 +300,38 @@
     "title": "Post Sort Survey",
     "nextButtonText": "Next",
     "commentArrays": ["column4", "column3", "columnN4", "columnN3", "column0"],
-    "pages": [
-      {
-        "name": "page 1b",
-        "elements": [
-          {
-            "type": "radiogroup",
-            "name": "question2",
-            "choices": ["my choice 1", "my choice 2", "my choice 3"]
-          },
-          {
-            "type": "comment",
-            "name": "question3"
-          },
+    "pages": [{
+      "name": "page 1b",
+      "elements": [{
+          "type": "radiogroup",
+          "name": "question2",
+          "choices": ["my choice 1", "my choice 2", "my choice 3"]
+        },
+        {
+          "type": "comment",
+          "name": "question3"
+        },
 
-          {
-            "type": "text",
-            "name": "question4"
-          },
-          {
-            "type": "dropdown",
-            "name": "question1",
-            "title": "question1 to ansewr is this",
-            "choices": [
-              {
-                "value": "item1",
-                "text": "choice 1"
-              },
-              {
-                "value": "item2",
-                "text": "choice 2"
-              }
-            ]
-          }
-        ]
-      }
-    ],
+        {
+          "type": "text",
+          "name": "question4"
+        },
+        {
+          "type": "dropdown",
+          "name": "question1",
+          "title": "question1 to ansewr is this",
+          "choices": [{
+              "value": "item1",
+              "text": "choice 1"
+            },
+            {
+              "value": "item2",
+              "text": "choice 2"
+            }
+          ]
+        }
+      ]
+    }],
     "showPrevButton": false,
     "showCompletedPage": false,
     "pageNextText": "Submit All Results"
