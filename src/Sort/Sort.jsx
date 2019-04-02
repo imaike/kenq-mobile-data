@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './Sort.css';
-// import * as cloneDeep from 'lodash/cloneDeep';
 import { view } from 'react-easy-state';
-// import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import move from './move';
 import reorder from './reorder';
-// import Headers from './Headers';
 import state from '../state';
 import SortColumn from './SortColumn';
 import getListStyleHori from './getListStyleHori';
@@ -180,7 +178,7 @@ class Sort extends Component {
             highlightedColHeader={this.state.draggingOverColumnId}
           /> */}
           {columns}
-          <div className="sortFooter">
+          <SortFooterDiv>
             <div className="cardSlider">
               <Droppable droppableId="statements" direction="horizontal">
                 {(provided, snapshot) => (
@@ -224,16 +222,7 @@ class Sort extends Component {
                 )}
               </Droppable>
             </div>
-
-            <div className="footerMessageBox">
-              <SortCompletedMessage
-                sortCompleteText={sortCompleteText}
-                nextButtonText={nextButtonText}
-              />
-              <ColumnOverloadMessage overloadedColumn={overloadedColumn} />
-              <NumberCardsSortedMessage totalStatements={totalStatements} />
-            </div>
-          </div>
+          </SortFooterDiv>
         </div>
       </DragDropContext>
     );
@@ -241,3 +230,36 @@ class Sort extends Component {
 }
 
 export default view(Sort);
+
+const SortFooterDiv = styled.div`
+  flex-direction: row;
+  background: #e4e4e4;
+  position: fixed;
+  left: 0px;
+  bottom: 0;
+  width: 100%;
+  height: ${props => +props.cardHeight + 20};
+`;
+
+/*
+<div className="footerMessageBox">
+  <SortCompletedMessage
+    sortCompleteText={sortCompleteText}
+    nextButtonText={nextButtonText}
+  />
+  <ColumnOverloadMessage overloadedColumn={overloadedColumn} />
+  <NumberCardsSortedMessage totalStatements={totalStatements} />
+</div>
+
+height: 150px;
+.sortFooter {
+  display: flex;
+  flex-direction: row;
+  background: #e4e4e4;
+  position: fixed;
+  left: 0px;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+}
+*/

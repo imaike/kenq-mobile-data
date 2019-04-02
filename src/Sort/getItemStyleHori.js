@@ -15,7 +15,7 @@ const getItemStyleHori = (
   }
 
   if (newCardColor === 'undefined') {
-    newCardColor = 'white';
+    newCardColor = 'whitesmoke';
   }
   return {
     userSelect: 'none',

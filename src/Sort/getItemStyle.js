@@ -10,10 +10,11 @@ const getItemStyle = (isDragging, draggableStyle, cardWidth, cardHeight) => ({
   borderRadius: `5px`,
   display: 'flex',
   alignItems: 'center',
+  border: `1px solid #a8a8a8`,
   // justifyContent: `center`,
   // change background colour if dragging
   textAlign: `center`,
-  background: isDragging ? '#e6bbad' : 'whitesmoke',
+  background: isDragging ? '#e6bbad' : '#e4e4e4',
 
   // styles we need to apply on draggables
   ...draggableStyle,
