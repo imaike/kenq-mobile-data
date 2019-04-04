@@ -21,7 +21,7 @@ class Sort extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      draggingOverColumnId: 'column99',
+      draggingOverColumnId: 'column99'
     };
   }
 
@@ -121,6 +121,10 @@ class Sort extends Component {
       sortCharacteristics,
       totalStatements,
     } = this.props;
+    console.log(
+      'TCL: Sort -> render -> this.props',
+      JSON.stringify(this.props, null, 2)
+    );
 
     // const { sortCharacteristics, totalStatements } = this.props;
     const changeColumnHeaderColor = columnId => {
@@ -246,7 +250,7 @@ const SortFooterDiv = styled.div`
   left: 0px;
   bottom: 0;
   width: 100%;
-  height: ${props => +props.cardHeight + 20};
+  height: ${props => `${+props.cardHeight + 20}px;`};
 `;
 
 /*
