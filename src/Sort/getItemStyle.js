@@ -14,7 +14,7 @@ const getItemStyle = (isDragging, draggableStyle, cardWidth, cardHeight) => ({
   // justifyContent: `center`,
   // change background colour if dragging
   textAlign: `center`,
-  background: isDragging ? '#e6bbad' : '#e4e4e4',
+  background: isDragging ? '#e6bbad' : '#eeeeee',
 
   // styles we need to apply on draggables
   ...draggableStyle,

@@ -221,6 +221,14 @@ class Sort extends Component {
                   </div>
                 )}
               </Droppable>
+              <div className="footerMessageBox">
+                <SortCompletedMessage
+                  sortCompleteText={sortCompleteText}
+                  nextButtonText={nextButtonText}
+                />
+                <ColumnOverloadMessage overloadedColumn={overloadedColumn} />
+                <NumberCardsSortedMessage totalStatements={totalStatements} />
+              </div>
             </div>
           </SortFooterDiv>
         </div>
