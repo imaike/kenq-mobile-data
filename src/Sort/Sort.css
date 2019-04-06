@@ -16,6 +16,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .headersContainer {

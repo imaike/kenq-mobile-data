@@ -43,7 +43,9 @@ class SortColumn extends React.Component {
                 columnColor
               )}
             >
-              <HeaderDiv>{qSortHeaderNumber}</HeaderDiv>
+              <HeaderDiv data-react-beautiful-dnd-drag-handle="0">
+                {qSortHeaderNumber}
+              </HeaderDiv>
               {columnStatementsArray.map((item, index) => (
                 <Draggable key={item.id} draggableId={item.id} index={index}>
                   {(provided, snapshot) => (

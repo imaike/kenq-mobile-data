@@ -275,3 +275,19 @@ height: 150px;
   height: 150px;
 }
 */
+
+/* DO NOT DELETE - important
+"columnColorsArray": [
+      "#ffb2b2"
+      "#ffbfbf",
+      "#ffcbcb",
+      "#ffd8d8",
+      "#ffe5e5",
+      "#f5f5f5",
+      "#d6f5d6",
+      "#c1f0c1",
+      "#adebad",
+      "#98E698",
+      "#84e184"
+    ],
+*/

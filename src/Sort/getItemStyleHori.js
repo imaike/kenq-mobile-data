@@ -15,10 +15,11 @@ const getItemStyleHori = (
   }
 
   if (newCardColor === 'undefined') {
-    newCardColor = 'whitesmoke';
+    newCardColor = '#eeeeee';
   }
   return {
     userSelect: 'none',
+    webkitUserSelect: 'none',
     lineHeight: `1em`,
     fontSize: 15,
     height: cardHeight,
