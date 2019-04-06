@@ -11,7 +11,8 @@
     "react-dom": "^16.8.6",
     "react-easy-state": "^6.1.1",
     "react-scripts": "2.1.8",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "survey-react": "^1.0.78"
   },
   "scripts": {
     "start": "react-scripts start",

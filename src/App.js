@@ -7,6 +7,7 @@ import Statements from './Statements/Statements';
 import Presort from './Presort/Presort';
 import Sort from './Sort/Sort';
 import PostSort from './Postsort/PostSort';
+import Survey from './Survey/Survey';
 import state from './state';
 
 /* eslint react/prop-types: 0 */
@@ -18,13 +19,14 @@ class App extends Component {
     const displayStatements = state.getState('displayStatements');
     const displaySort = state.getState('displaySort');
     const displayPostsort = state.getState('displayPostsort');
-
+    const displaySurvey = state.getState('displaySurvey');
     const {
       adminData,
       columnStatements,
       preSortData,
       sortPageData,
       postSortData,
+      surveyData,
     } = this.props;
 
     return (
@@ -60,6 +62,7 @@ class App extends Component {
         {displayPostsort && (
           <PostSort {...postSortData} out={displayPostsort} />
         )}
+        {displaySurvey && <Survey {...surveyData} out={displaySurvey} />}
       </PageContainer>
     );
   }
