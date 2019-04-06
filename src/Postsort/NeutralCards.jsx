@@ -1,31 +1,31 @@
-// import state from "../../store";
-import store from "../../state";
-import React, { Component } from "react";
-import getPostSortCardStyleHigh from "./getPostSortCardStyleHigh";
+import React, { Component } from 'react';
+import getPostSortCardStyleHigh from './getPostSortCardStyleHigh';
+
+/* eslint react/prop-types: 0 */
 
 const styles = {
   container: {
-    width: "80%",
+    width: '80%',
     border: `2px solid black`,
     marginTop: 50,
-    marginLeft: "10%",
-    borderRadius: `3px`
+    marginLeft: '10%',
+    borderRadius: `3px`,
   },
   cardAndTextHolder: {
     display: `flex`,
     alignContent: `center`,
-    background: `#7e7e7e`
+    background: `#7e7e7e`,
   },
   textHolder: {
     marginTop: 5,
-    flexGrow: 5
+    flexGrow: 5,
   },
   cardTag: {
     width: `100%`,
     background: `darkgray`,
     color: `black`,
-    textAlign: `center`
-  }
+    textAlign: `center`,
+  },
 };
 
 // LowCards example ===> {high: ["column4"], middle: ["column0"], low: ["columnN4"]}
@@ -37,41 +37,47 @@ class NeutralCards extends Component {
     const targetCard = event.target.id;
     const userEnteredText = event.target.value;
 
-    let identifier = columnDisplay + "_Card" + (itemId + 1);
+    const identifier = `${columnDisplay}_Card${itemId + 1}`;
 
     // pull in state object for comments
-    let statementCommentsObj =
-      JSON.parse(localStorage.getItem("statementCommentsObj")) || {};
+    const statementCommentsObj =
+      JSON.parse(localStorage.getItem('statementCommentsObj')) || {};
 
     // to update just the card that changed
     cards.map(el => {
       if (el.id === targetCard) {
         const comment3 = userEnteredText;
         // remove new line and commas to make csv export easier
-        const comment2 = comment3.replace(/\n/g, " ");
-        const comment = comment2.replace(/,/g, " ");
+        const comment2 = comment3.replace(/\n/g, ' ');
+        const comment = comment2.replace(/,/g, ' ');
         // assign to main data object for confirmation / debugging
         el.comment = comment;
         // assign to comments object
-        statementCommentsObj[identifier] = el.id + ">>>" + comment;
+        statementCommentsObj[identifier] = `${el.id}>>>${comment}`;
       }
       return el;
     });
 
     localStorage.setItem(
-      "statementCommentsObj",
+      'statementCommentsObj',
       JSON.stringify(statementCommentsObj)
     );
 
-    localStorage.setItem("columnStatements", JSON.stringify(columnStatements));
-    store.dispatch.setColumnStatements(columnStatements);
+    localStorage.setItem('columnStatements', JSON.stringify(columnStatements));
   }; // end onBlur
 
   render() {
-    const { height, width, columnDisplay } = this.props;
-    const { neutralText, placeholder } = this.props.neutralObj;
+    const {
+      height,
+      width,
+      columnDisplay,
+      neutralObj,
+      neutralCards,
+      columnStatements,
+    } = this.props;
+    const { neutralText, placeholder } = neutralObj;
 
-    return this.props.neutralCards.map((item, index) => (
+    return neutralCards.map((item, index) => (
       <div key={item.statement} style={styles.container}>
         <div style={styles.cardTag}>{neutralText}</div>
         <div style={styles.cardAndTextHolder}>
@@ -87,12 +93,7 @@ class NeutralCards extends Component {
               placeholder={placeholder}
               defaultValue={item.comment}
               onBlur={e => {
-                this.onBlur(
-                  e,
-                  this.props.columnStatements,
-                  columnDisplay,
-                  index
-                );
+                this.onBlur(e, columnStatements, columnDisplay, index);
               }}
             />
           </div>

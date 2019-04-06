@@ -81,7 +81,9 @@
       "columnDisplay2": ["columnN3"],
       "displaySecondColumn": true,
       "placeholder": "Click here to add comment"
-    }
+    },
+    "columnWidth": 100,
+    "cardHeight": 120
   },
   "submitData": {},
   "columnStatements": {

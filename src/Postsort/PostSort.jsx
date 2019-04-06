@@ -1,44 +1,52 @@
-import "./PostSort.css";
-import LowCards from "./LowCards";
-import LowCards2 from "./LowCards2";
-import HighCards from "./HighCards";
-import HighCards2 from "./HighCards2";
-import NeutralCards from "./NeutralCards";
-import { Link } from "react-router-dom";
-import React, { Component } from "react";
-import store from "../../state";
-import displayDataObject from "../../Utils/displayDataObjectPostSort";
-import calculateTimeOnPage from "../../Utils/calculateTimeOnPage";
+import './PostSort.css';
+import React, { Component } from 'react';
+import LowCards from './LowCards';
+import LowCards2 from './LowCards2';
+import HighCards from './HighCards';
+import HighCards2 from './HighCards2';
+import NeutralCards from './NeutralCards';
+// import store from "../../state";
+import state from '../state';
+// import displayDataObject from "../../Utils/displayDataObjectPostSort";
+// import calculateTimeOnPage from "../../Utils/calculateTimeOnPage";
+
+/* eslint react/prop-types: 0 */
 
 const styles = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  width: "100%",
-  paddingBottom: 25
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  width: '100%',
+  paddingBottom: 25,
 };
 
-let startTime;
+// let startTime;
+
+const handleClick = () => {
+  state.setState({ displayAdmin: true, displayPostsort: false });
+};
 
 class PostSort extends Component {
-  componentDidMount() {
-    startTime = Date.now();
-  }
+  // componentDidMount() {
+  //   startTime = Date.now();
+  // }
 
-  componentWillUnmount() {
-    calculateTimeOnPage(startTime, "postSortPage", "PostSortPage");
-  }
+  // componentWillUnmount() {
+  //   calculateTimeOnPage(startTime, "postSortPage", "PostSortPage");
+  // }
 
   render() {
     // pull data from localStorage
-    let columnStatements = JSON.parse(localStorage.getItem("columnStatements"));
-    if (!columnStatements) {
-      console.log("no local storage");
-      columnStatements = store.getState().columnStatements;
-    }
+    const columnStatements = JSON.parse(
+      localStorage.getItem('columnStatements')
+    );
+    // if (!columnStatements) {
+    //   console.log("no local storage");
+    //   columnStatements = store.getState().columnStatements;
+    // }
 
     console.log(
-      "TCL: PostSort -> render -> columnStatements",
+      'TCL: PostSort -> render -> columnStatements',
       columnStatements
     );
 
@@ -47,24 +55,32 @@ class PostSort extends Component {
       nextButtonText,
       columnWidth,
       instructionsText,
-      cardHeight
+      cardHeight,
+      agreeObj,
+      disagreeObj,
+      neutralObj,
     } = this.props;
 
-    const agreeObj = this.props.agreeObj;
-    const disagreeObj = this.props.disagreeObj;
-    const neutralObj = this.props.neutralObj;
+    console.log('TCL: PostSort -> render -> this.props', this.props);
 
-    let highCards = columnStatements.vCols[agreeObj.columnDisplay];
-    let highCards2 = columnStatements.vCols[agreeObj.columnDisplay2];
-    let neutralCards = columnStatements.vCols[neutralObj.columnDisplay];
-    let lowCards = columnStatements.vCols[disagreeObj.columnDisplay];
-    let lowCards2 = columnStatements.vCols[disagreeObj.columnDisplay2];
+    const highCards = columnStatements.vCols[agreeObj.columnDisplay];
+    const highCards2 = columnStatements.vCols[agreeObj.columnDisplay2];
+    const neutralCards = columnStatements.vCols[neutralObj.columnDisplay];
+    const lowCards = columnStatements.vCols[disagreeObj.columnDisplay];
+    const lowCards2 = columnStatements.vCols[disagreeObj.columnDisplay2];
 
     return (
       <div>
         <div className="titleDiv">
           <h1>{titleText}</h1>
           <h3>{instructionsText}</h3>
+          <button
+            className="postSortButton"
+            type="button"
+            onClick={handleClick}
+          >
+            Admin
+          </button>
         </div>
         <div className="scrollableDiv">
           <div style={styles}>
@@ -121,22 +137,7 @@ class PostSort extends Component {
           </div>
         </div>
         <div className="footer fix-footer postSortFooter">
-          <nav>
-            <button
-              onClick={displayDataObject}
-              className="button is-link is-large is-inverted is-outlined is-pulled-right"
-            >
-              {" "}
-              state
-            </button>
-            <Link
-              className="button is-link is-large is-inverted is-outlined is-pulled-right"
-              to="/survey"
-            >
-              {" "}
-              {nextButtonText}
-            </Link>
-          </nav>
+          <nav />
         </div>
       </div>
     );

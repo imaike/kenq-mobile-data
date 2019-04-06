@@ -10,7 +10,7 @@ import state from '../state';
 
 const handleClick = () => {
   console.log('clicked');
-  state.setState({ displayAdmin: true, displayPresort: false });
+  state.setState({ displayPostsort: true, displaySort: false });
 };
 
 const SortCompletedMessageBox = props => {

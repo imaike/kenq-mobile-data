@@ -1,4 +1,5 @@
 .titleDiv {
+  display: flex;
   padding-top: 20px;
   height: 350px;
   background: steelblue;
@@ -39,4 +40,15 @@
   background: steelblue;
   left: 0;
   bottom: 0;
+}
+
+.postSortButton {
+  height: 50px;
+  width: 100px;
+  margin-top: 25px;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-size: 20px;
+  text-align: center;
+  padding-right: 5px;
 }
