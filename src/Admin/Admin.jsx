@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
+import shuffle from 'lodash/shuffle';
 import { view } from 'react-easy-state';
-// import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import cloneDeep from 'lodash/cloneDeep';
+import styled, { keyframes } from 'styled-components';
 import state from '../state';
+import getRandomId from '../Utils/getRandomId';
+import getFormattedViewTime from '../Utils/getFormattedViewTime';
 
 /* eslint react/prop-types: 0 */
 
@@ -14,6 +17,35 @@ const handleButtonClick = e => {
   }
   if (buttonId === 'goButton') {
     state.setState({ displayAdmin: false, displayPresort: true });
+
+    // shuffle the cards - once only
+    // TODO - add card shuffle
+    // const hasShuffledCards = localStorage.getItem('hasShuffled');
+    // if (hasShuffledCards !== 'true') {
+    //   const cards2 = this.props.columnStatements.statementList;
+    //   const cards = cloneDeep(cards2);
+    //   const shuffledCards = shuffle(cards);
+    //   this.props.columnStatements.statementList = shuffledCards;
+    //   localStorage.setItem(
+    //     'columnStatements',
+    //     JSON.stringify(this.props.columnStatements)
+    //   );
+    //   localStorage.setItem('hasShuffled', 'true');
+    // }
+
+    // sent participant info to state for storage
+    const randomId8 = getRandomId();
+    const randomId8b = getRandomId();
+    const randomId16 = randomId8 + randomId8b;
+
+    localStorage.setItem('randomId8', randomId8);
+    localStorage.setItem('randomId16', randomId16);
+
+    const startDate = getFormattedViewTime();
+    localStorage.setItem('startDate', startDate);
+
+    const startTime = Date.now();
+    localStorage.setItem('projectStartTime', startTime);
   }
 };
 
@@ -249,3 +281,36 @@ const ResultsDiv = styled.div`
   width: 1270px;
   background: whitesmoke;
 `;
+
+/*
+// shuffle the cards - once only
+    let hasShuffledCards = sessionStorage.getItem("hasShuffled");
+    if (hasShuffledCards !== "true") {
+      const cards2 = this.props.columnStatements.statementList;
+      const cards = cloneDeep(cards2);
+      const shuffledCards = shuffle(cards);
+      this.props.columnStatements.statementList = shuffledCards;
+      sessionStorage.setItem(
+        "columnStatements",
+        JSON.stringify(this.props.columnStatements)
+      );
+      sessionStorage.setItem("hasShuffled", "true");
+    }
+
+
+ // sent participant info to state for storage
+    const randomId8 = getRandomId();
+    const randomId8b = getRandomId();
+    const randomId16 = randomId8 + randomId8b;
+
+    sessionStorage.setItem("randomId8", randomId8);
+    sessionStorage.setItem("randomId16", randomId16);
+
+    let startDate = getFormattedViewTime();
+    sessionStorage.setItem("startDate", startDate);
+
+    startTime = Date.now();
+    sessionStorage.setItem("projectStartTime", startTime);
+
+
+*/

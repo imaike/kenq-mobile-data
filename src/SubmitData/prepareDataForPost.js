@@ -1,4 +1,3 @@
-// import store from "../../state";
 import includes from 'lodash/includes';
 import calculateTotalProjectTime from './calculateTotalProjectTime';
 import getFormattedViewTime from '../Utils/getFormattedViewTime';
@@ -10,13 +9,6 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
 
   const endDate = getFormattedViewTime();
 
-  // const projectStartTime = localStorage.getItem();
-  // const sortCumulativeDuration = getCumulativeDuration(projectStartTime, 0);
-
-  // console.log("TCL: prepareDataForPost -> endTime", endTime);
-
-  // console.log(JSON.stringify(columnStatements));
-
   // let columnStatements = store.getState().columnStatements;
   const resultsJson = {};
   resultsJson.randomId8 = localStorage.getItem('randomId8');
@@ -24,26 +16,6 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
 
   resultsJson.startDate = localStorage.getItem('startDate');
   resultsJson.endDate = endDate;
-
-  // resultsJson.randomId8 = store.getState().randomId8;
-  // resultsJson.startDate = store.getState().startDate;
-  // resultsJson.startTime = store.getState().startTime;
-  // resultsJson.finishTime = store.getState().finishTime;
-  // resultsJson.landingPageDuration = store.getState().landingPageDurationCumulative;
-  // resultsJson.homePageDuration = store.getState().homePageDurationCumulative;
-  // resultsJson.preSortPageDuration = store.getState().preSortPageDurationCumulative;
-  // // resultsJson.sortPageDuration = store.getState().sortPageDurationCumulative;
-  // resultsJson.postSortPageDuration = store.getState().postSortPageDurationCumulative;
-  // resultsJson.surveyPageDuration = store.getState().surveyPageDurationCumulative;
-  // resultsJson.randomId8 = store.getState().randomId8;
-
-  // assign sort values
-  // sort by statementNum
-  // push sort values into results array or compose sort string (using look-up object)
-
-  resultsJson.homePageLastAccess = localStorage.getItem(
-    'setHomePageLastAccess'
-  );
 
   resultsJson.preSortPageLastAccess = localStorage.getItem(
     'setPreSortPageLastAccess'
@@ -61,16 +33,9 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
     'setSurveyPageLastAccess'
   );
 
-  resultsJson.homePageDuration = localStorage.getItem(
-    'setHomePageDurationFormatted'
-  );
-
   const preSortTime = localStorage.getItem('setPreSortPageDurationFormatted');
-
   const sortTime = localStorage.getItem('setSortPageDurationFormatted');
-
   const postSortTime = localStorage.getItem('setPostSortPageDurationFormatted');
-
   const surveyTime = localStorage.getItem('setSurveyPageDurationFormatted');
 
   const totalProjectTime = calculateTotalProjectTime(
