@@ -12,25 +12,26 @@ import getItemStyleHori from './getItemStyleHori';
 import SortCompletedMessage from './SortCompletedMessage';
 import ColumnOverloadMessage from './ColumnOverloadMessage';
 import NumberCardsSortedMessage from './NumberCardsSortedMessage';
+import calculateTimeOnPage from '../Utils/calculateTimeOnPage';
 
 /* eslint react/prop-types: 0 */
 
-// let startTime;
+let startTime;
 
 class Sort extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      draggingOverColumnId: 'column99'
+      draggingOverColumnId: 'column99',
     };
   }
 
   componentDidMount() {
-    // startTime = Date.now();
+    startTime = Date.now();
   }
 
   componentWillUnmount() {
-    // calculateTimeOnPage(startTime, 'sortPage', 'SortPage');
+    calculateTimeOnPage(startTime, 'sortPage', 'SortPage');
   }
 
   // fire move and re-order functions
@@ -121,10 +122,6 @@ class Sort extends Component {
       sortCharacteristics,
       totalStatements,
     } = this.props;
-    console.log(
-      'TCL: Sort -> render -> this.props',
-      JSON.stringify(this.props, null, 2)
-    );
 
     // const { sortCharacteristics, totalStatements } = this.props;
     const changeColumnHeaderColor = columnId => {

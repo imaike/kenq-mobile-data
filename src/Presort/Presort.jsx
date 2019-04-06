@@ -2,6 +2,8 @@ import styled, { keyframes } from 'styled-components';
 import React, { Component } from 'react';
 import StatementList from './StatementList';
 import state from '../state';
+import calculateTimeOnPage from '../Utils/calculateTimeOnPage';
+
 /* eslint react/prop-types: 0 */
 
 const handleClick = () => {
@@ -14,7 +16,17 @@ const handleClick2 = () => {
   state.setState({ displaySort: true, displayPresort: false });
 };
 
+let startTime;
+
 class PreSort extends Component {
+  componentDidMount() {
+    startTime = Date.now();
+  }
+
+  componentWillUnmount() {
+    calculateTimeOnPage(startTime, 'preSortPage', 'PreSortPage');
+  }
+
   render() {
     const forceUpdate = () => {
       this.forceUpdate();

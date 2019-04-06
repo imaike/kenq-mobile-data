@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import "./SubmitData.css";
+import React, { Component } from 'react';
+import './SubmitData.css';
 // import store from "../../state";
+
+/* eslint react/prop-types: 0 */
 
 class SubmitData extends Component {
   constructor(props) {
@@ -8,17 +10,22 @@ class SubmitData extends Component {
     this.state = {
       showSuccess: false,
       showError: false,
-      showTransmit: true
+      showTransmit: true,
     };
     this.transmitData = this.transmitData.bind(this);
     this.showSuccess = this.showSuccess.bind(this);
+  }
+
+  componentDidMount() {
+    // );
+    this.transmitData();
   }
 
   showSuccess = () => {
     this.setState({
       showSuccess: true,
       showError: false,
-      showTransmit: false
+      showTransmit: false,
     });
   };
 
@@ -26,42 +33,38 @@ class SubmitData extends Component {
     this.setState({
       showError: true,
       showTransmit: false,
-      showSuccess: false
+      showSuccess: false,
     });
   };
 
   transmitData = () => {
-    let resultsJson = JSON.parse(sessionStorage.getItem("resultsJson"));
-    let firebase = window.firebase;
+    const resultsJson = JSON.parse(localStorage.getItem('resultsJson'));
+    // console.log('TCL: SubmitData -> transmitData -> resultsJson', resultsJson);
+    // const firebase = window.firebase;
     const participantId = resultsJson.randomId16;
     console.log(
-      "TCL: SubmitData -> transmitData -> participantId",
+      'TCL: SubmitData -> transmitData -> participantId',
       participantId
     );
 
-    firebase
-      .database()
-      .ref(participantId)
-      .set(resultsJson, error => {
-        if (error) {
-          console.log(JSON.stringify("there was a data transmission error"));
-          this.showError();
-        } else {
-          console.log(JSON.stringify("data transmission success"));
-          this.showSuccess();
-        }
-      });
+    // firebase
+    //   .database()
+    //   .ref(participantId)
+    //   .set(resultsJson, error => {
+    //     if (error) {
+    //       console.log(JSON.stringify('there was a data transmission error'));
+    //       this.showError();
+    //     } else {
+    //       console.log(JSON.stringify('data transmission success'));
+    //       this.showSuccess();
+    //     }
+    //   });
 
     console.log(
-      "TCL: SubmitData -> componentDidMount -> resultsJson",
+      'TCL: SubmitData -> componentDidMount -> resultsJson',
       JSON.stringify(resultsJson, null, 2)
     );
   };
-
-  componentDidMount() {
-    // );
-    this.transmitData();
-  }
 
   render() {
     if (this.state.showError === true) {
@@ -81,7 +84,8 @@ class SubmitData extends Component {
           </div>
         </div>
       );
-    } else if (this.state.showSuccess === true) {
+    }
+    if (this.state.showSuccess === true) {
       return (
         <div className="SubmitData">
           <div className="titleDivSubmitData">
@@ -95,7 +99,8 @@ class SubmitData extends Component {
           </div>
         </div>
       );
-    } else if (this.state.showTransmit === true) {
+    }
+    if (this.state.showTransmit === true) {
       return (
         <div className="SubmitData">
           <div className="titleDivSubmitData">

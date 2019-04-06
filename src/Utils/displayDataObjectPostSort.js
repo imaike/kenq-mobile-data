@@ -5,7 +5,7 @@ const displayDataObject = () => {
   const results = store.getState().agreeObj;
   const results2 = store.getState().disagreeObj;
   // const columnStatements = store.getState().columnStatements;
-  const columnList = JSON.parse(sessionStorage.getItem("columnStatements"));
+  const columnList = JSON.parse(localStorage.getItem("columnStatements"));
 
   console.log("agreeObj => ", JSON.stringify(results));
   console.log("disagreeObj => ", JSON.stringify(results2));

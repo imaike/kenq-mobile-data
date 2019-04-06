@@ -8,6 +8,7 @@ import Presort from './Presort/Presort';
 import Sort from './Sort/Sort';
 import PostSort from './Postsort/PostSort';
 import Survey from './Survey/Survey';
+import SubmitData from './SubmitData/SubmitData';
 import state from './state';
 
 /* eslint react/prop-types: 0 */
@@ -20,6 +21,8 @@ class App extends Component {
     const displaySort = state.getState('displaySort');
     const displayPostsort = state.getState('displayPostsort');
     const displaySurvey = state.getState('displaySurvey');
+    const displaySubmitData = state.getState('displaySubmitData');
+
     const {
       adminData,
       columnStatements,
@@ -63,6 +66,7 @@ class App extends Component {
           <PostSort {...postSortData} out={displayPostsort} />
         )}
         {displaySurvey && <Survey {...surveyData} out={displaySurvey} />}
+        {displaySubmitData && <SubmitData out={displaySubmitData} />}
       </PageContainer>
     );
   }

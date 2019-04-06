@@ -5,10 +5,9 @@ import LowCards2 from './LowCards2';
 import HighCards from './HighCards';
 import HighCards2 from './HighCards2';
 import NeutralCards from './NeutralCards';
-// import store from "../../state";
 import state from '../state';
+import calculateTimeOnPage from '../Utils/calculateTimeOnPage';
 // import displayDataObject from "../../Utils/displayDataObjectPostSort";
-// import calculateTimeOnPage from "../../Utils/calculateTimeOnPage";
 
 /* eslint react/prop-types: 0 */
 
@@ -20,20 +19,20 @@ const styles = {
   paddingBottom: 25,
 };
 
-// let startTime;
+let startTime;
 
 const handleClick = () => {
-  state.setState({ displayAdmin: true, displayPostsort: false });
+  state.setState({ displaySurvey: true, displayPostsort: false });
 };
 
 class PostSort extends Component {
-  // componentDidMount() {
-  //   startTime = Date.now();
-  // }
+  componentDidMount() {
+    startTime = Date.now();
+  }
 
-  // componentWillUnmount() {
-  //   calculateTimeOnPage(startTime, "postSortPage", "PostSortPage");
-  // }
+  componentWillUnmount() {
+    calculateTimeOnPage(startTime, 'postSortPage', 'PostSortPage');
+  }
 
   render() {
     // pull data from localStorage

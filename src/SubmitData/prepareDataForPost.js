@@ -6,13 +6,11 @@ import getFormattedViewTime from '../Utils/getFormattedViewTime';
 const prepareDataForPost = (commentArrays, surveyResults2) => {
   console.log('TCL: prepareDataForPost -> surveyResults2', surveyResults2);
   const surveyResults = surveyResults2.data;
-  const columnStatements = JSON.parse(
-    sessionStorage.getItem('columnStatements')
-  );
+  const columnStatements = JSON.parse(localStorage.getItem('columnStatements'));
 
   const endDate = getFormattedViewTime();
 
-  // const projectStartTime = sessionStorage.getItem();
+  // const projectStartTime = localStorage.getItem();
   // const sortCumulativeDuration = getCumulativeDuration(projectStartTime, 0);
 
   // console.log("TCL: prepareDataForPost -> endTime", endTime);
@@ -21,10 +19,10 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
 
   // let columnStatements = store.getState().columnStatements;
   const resultsJson = {};
-  resultsJson.randomId8 = sessionStorage.getItem('randomId8');
-  resultsJson.randomId16 = sessionStorage.getItem('randomId16');
+  resultsJson.randomId8 = localStorage.getItem('randomId8');
+  resultsJson.randomId16 = localStorage.getItem('randomId16');
 
-  resultsJson.startDate = sessionStorage.getItem('startDate');
+  resultsJson.startDate = localStorage.getItem('startDate');
   resultsJson.endDate = endDate;
 
   // resultsJson.randomId8 = store.getState().randomId8;
@@ -43,39 +41,37 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
   // sort by statementNum
   // push sort values into results array or compose sort string (using look-up object)
 
-  resultsJson.homePageLastAccess = sessionStorage.getItem(
+  resultsJson.homePageLastAccess = localStorage.getItem(
     'setHomePageLastAccess'
   );
 
-  resultsJson.preSortPageLastAccess = sessionStorage.getItem(
+  resultsJson.preSortPageLastAccess = localStorage.getItem(
     'setPreSortPageLastAccess'
   );
 
-  resultsJson.sortPageLastAccess = sessionStorage.getItem(
+  resultsJson.sortPageLastAccess = localStorage.getItem(
     'setSortPageLastAccess'
   );
 
-  resultsJson.postSortPageLastAccess = sessionStorage.getItem(
+  resultsJson.postSortPageLastAccess = localStorage.getItem(
     'setPostSortPageLastAccess'
   );
 
-  resultsJson.surveyPageLastAccess = sessionStorage.getItem(
+  resultsJson.surveyPageLastAccess = localStorage.getItem(
     'setSurveyPageLastAccess'
   );
 
-  resultsJson.homePageDuration = sessionStorage.getItem(
+  resultsJson.homePageDuration = localStorage.getItem(
     'setHomePageDurationFormatted'
   );
 
-  const preSortTime = sessionStorage.getItem('setPreSortPageDurationFormatted');
+  const preSortTime = localStorage.getItem('setPreSortPageDurationFormatted');
 
-  const sortTime = sessionStorage.getItem('setSortPageDurationFormatted');
+  const sortTime = localStorage.getItem('setSortPageDurationFormatted');
 
-  const postSortTime = sessionStorage.getItem(
-    'setPostSortPageDurationFormatted'
-  );
+  const postSortTime = localStorage.getItem('setPostSortPageDurationFormatted');
 
-  const surveyTime = sessionStorage.getItem('setSurveyPageDurationFormatted');
+  const surveyTime = localStorage.getItem('setSurveyPageDurationFormatted');
 
   const totalProjectTime = calculateTotalProjectTime(
     preSortTime,
@@ -153,7 +149,7 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
   resultsJson.sort = sortString;
 
   const statementCommentsObj = JSON.parse(
-    sessionStorage.getItem('statementCommentsObj')
+    localStorage.getItem('statementCommentsObj')
   );
   // CREATE COMMENT OBJECT
   for (let m = 0; m < commentKeys.length; m++) {
@@ -173,7 +169,7 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
     resultsJson[keys[i]] = surveyResults[keys[i]];
   }
 
-  sessionStorage.setItem('resultsJson', JSON.stringify(resultsJson));
+  localStorage.setItem('resultsJson', JSON.stringify(resultsJson));
 };
 
 export default prepareDataForPost;

@@ -8,10 +8,10 @@ const calculateTotalProjectTime = (
   let minutes;
   let seconds;
 
-  const preSortTimeArray = preSortTime.split(":").map(Number);
-  const sortTimeArray = sortTime.split(":").map(Number);
-  const postSortTimeArray = postSortTime.split(":").map(Number);
-  const surveyTimeArray = surveyTime.split(":").map(Number);
+  const preSortTimeArray = preSortTime.split(':').map(Number);
+  const sortTimeArray = sortTime.split(':').map(Number);
+  const postSortTimeArray = postSortTime.split(':').map(Number);
+  const surveyTimeArray = surveyTime.split(':').map(Number);
 
   seconds =
     preSortTimeArray[2] +
@@ -34,23 +34,22 @@ const calculateTotalProjectTime = (
   const additionalMinutes = Math.floor(seconds / 60);
   let remainingSeconds = seconds - additionalMinutes * 60;
 
-  minutes = minutes + additionalMinutes;
+  minutes += additionalMinutes;
 
   const additionalHours = Math.floor(minutes / 60);
   let remainingMinutes = minutes - additionalHours * 60;
 
-  hours = hours + additionalHours;
+  hours += additionalHours;
 
   if (remainingSeconds < 10) {
-    remainingSeconds = "0" + remainingSeconds;
+    remainingSeconds = `0${remainingSeconds}`;
   }
 
   if (remainingMinutes < 10) {
-    remainingMinutes = "0" + remainingMinutes;
+    remainingMinutes = `0${remainingMinutes}`;
   }
 
-  const totalCumulativeTime =
-    hours + ":" + remainingMinutes + ":" + remainingSeconds;
+  const totalCumulativeTime = `${hours}:${remainingMinutes}:${remainingSeconds}`;
 
   return totalCumulativeTime;
 };

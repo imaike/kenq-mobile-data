@@ -1,8 +1,9 @@
 import React from 'react';
 import * as Survey from 'survey-react';
 import prepareDataForPost from '../SubmitData/prepareDataForPost';
-// import store from '../../state';
-// import calculateTimeOnPage from '../../Utils/calculateTimeOnPage';
+import './survey.css';
+import calculateTimeOnPage from '../Utils/calculateTimeOnPage';
+import state from '../state';
 
 /* eslint react/prop-types: 0 */
 
@@ -24,15 +25,19 @@ class SurveyForm extends React.Component {
   // }
 
   componentDidMount() {
-    // startTime = Date.now();
+    startTime = Date.now();
   }
 
   // componentWillUnmount() {
+  //   calculateTimeOnPage(startTime, 'preSortPage', 'PreSortPage');
   // }
 
   sendDataToSurver = result => {
-    // calculateTimeOnPage(startTime, 'surveyPage', 'SurveyPage');
-    prepareDataForPost(this.props.commentArrays, result);
+    console.log('TCL: SurveyForm -> result', result);
+    console.log('sentdatatosurver called');
+    calculateTimeOnPage(startTime, 'surveyPage', 'SurveyPage');
+    const { commentArrays } = this.props;
+    prepareDataForPost(commentArrays, result);
     // store.dispatch.setSurveyPageResuts(result);
 
     this.setState(() => ({
@@ -42,7 +47,7 @@ class SurveyForm extends React.Component {
 
   render() {
     if (this.state.toSubmitData === true) {
-      // return <Redirect to="/submitdata" />;
+      state.setState({ displaySubmitData: true, displaySurvey: false });
     }
 
     // let firebase = window.firebase;

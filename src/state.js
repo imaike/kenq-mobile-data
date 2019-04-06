@@ -24,6 +24,7 @@ export default store({
   displaySort: false,
   displayPostsort: false,
   displaySurvey: false,
+  displaySubmitData: false,
 
   /* Admin */
 
