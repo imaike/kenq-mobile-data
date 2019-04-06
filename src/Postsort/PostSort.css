@@ -52,3 +52,14 @@
   text-align: center;
   padding-right: 5px;
 }
+
+.commentTextArea {
+  background-color: whitesmoke;
+  min-height: 120px;
+  width: calc(100% - 10px);
+}
+
+.tagContainerDiv {
+  padding-top: 3px;
+  width: 100%;
+}

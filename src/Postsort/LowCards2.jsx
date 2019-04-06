@@ -88,11 +88,11 @@ class LowCards extends Component {
           <div style={getPostSortCardStyleHigh(height, width)}>
             {item.statement}
           </div>
-          <div className="tagContainerDiv" style={styles.textHolder}>
+          <div className="tagContainerDiv">
             <textarea
               data-gramm_editor="false"
               id={item.id}
-              className="textarea"
+              className="commentTextArea"
               placeholder={placeholder}
               defaultValue={item.comment}
               onBlur={e => {

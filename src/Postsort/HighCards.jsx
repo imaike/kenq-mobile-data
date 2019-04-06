@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import getPostSortCardStyleHigh from './getPostSortCardStyleHigh';
-
+// import './highCards.css';
 /* eslint react/prop-types: 0 */
 
 const styles = {
@@ -12,10 +12,7 @@ const styles = {
   },
   textHolder: {
     marginTop: 5,
-    flexGrow: 5,
-    width: '100%',
-    height: '100%',
-    WebkitBoxSizing: 'border-box',
+    padding: 2,
   },
   cardTag: {
     width: `100%`,
@@ -83,11 +80,11 @@ class HighCards extends Component {
           <div style={getPostSortCardStyleHigh(height, width)}>
             {item.statement}
           </div>
-          <div className="tagContainerDiv" style={styles.textHolder}>
+          <div className="tagContainerDiv">
             <textarea
               data-gramm_editor="false"
               id={item.id}
-              className="textarea"
+              className="commentTextArea"
               placeholder={placeholder}
               defaultValue={item.comment}
               onBlur={e => {
