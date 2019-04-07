@@ -1,7 +1,7 @@
-import shuffle from 'lodash/shuffle';
+// import shuffle from 'lodash/shuffle';
 import { view } from 'react-easy-state';
 import React, { Component } from 'react';
-import cloneDeep from 'lodash/cloneDeep';
+// import cloneDeep from 'lodash/cloneDeep';
 import styled, { keyframes } from 'styled-components';
 import state from '../state';
 import getRandomId from '../Utils/getRandomId';
@@ -49,6 +49,32 @@ const handleButtonClick = e => {
   }
 };
 
+const handleEmailButtonClick = () => {
+  console.log('email click');
+  // pullEmailHeader();
+  // var link = document.getElementById('email');
+  const emailAddress = 'banasick@gmail.com'; // localStorage.getItem('emailInput');
+  const mail = document.createElement('a');
+  mail.target = '_blank';
+  mail.href =
+    'mailto:' + emailAddress + '?' + 'subject=Ken-Q Mobile Data&body=';
+
+  // const allResults = localStorage.getItem('allResults');
+  mail.href += 'test'; // allResults;
+  mail.click();
+  // state.setState({ displayAdmin: true });
+
+  // };
+
+  // function getBody() {
+  //     var emailText1 = $("#emailHeader").html();
+  //     var emailText2 = $("#incomingResults").html() + "<br><br>";
+  //     var emailText3 = $("#incomingComments").html();
+  //     var emailTextResults = emailText1 + emailText2;
+  //     return [emailTextResults, emailText3];
+  // }
+};
+
 class Admin extends Component {
   render() {
     const {
@@ -72,7 +98,7 @@ class Admin extends Component {
     return (
       <PageContainer>
         <Column1>
-          <Column1Button id="emailButton" onClick={handleButtonClick}>
+          <Column1Button id="emailButton" onClick={handleEmailButtonClick}>
             Email Results
           </Column1Button>
           <Column1Button

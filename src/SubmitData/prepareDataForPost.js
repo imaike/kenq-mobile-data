@@ -134,7 +134,21 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
     resultsJson[keys[i]] = surveyResults[keys[i]];
   }
 
-  localStorage.setItem('resultsJson', JSON.stringify(resultsJson));
+  let allResults = JSON.parse(localStorage.getItem('allResults'));
+  if (allResults === undefined || allResults === null) {
+    allResults = {};
+  }
+
+  allResults[resultsJson.randomId16] = { ...resultsJson };
+
+  localStorage.setItem('allResults', JSON.stringify(allResults));
+
+  console.log(
+    'TCL: prepareDataForPost -> allResults',
+    JSON.stringify(allResults, null, 2)
+  );
+
+  // localStorage.setItem('resultsJson', JSON.stringify(resultsJson));
 };
 
 export default prepareDataForPost;

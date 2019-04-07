@@ -51,7 +51,6 @@ class PostSort extends Component {
 
     const {
       titleText,
-      nextButtonText,
       columnWidth,
       instructionsText,
       cardHeight,

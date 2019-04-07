@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import './SubmitData.css';
-// import store from "../../state";
+import state from '../state';
 
 /* eslint react/prop-types: 0 */
+
+const handleClick = () => {
+  console.log('clicked');
+  state.setState({ displayAdmin: true, displaySubmitData: false });
+};
 
 class SubmitData extends Component {
   constructor(props) {
@@ -60,10 +65,10 @@ class SubmitData extends Component {
     //     }
     //   });
 
-    console.log(
-      'TCL: SubmitData -> componentDidMount -> resultsJson',
-      JSON.stringify(resultsJson, null, 2)
-    );
+    // console.log(
+    //   "TCL: SubmitData -> componentDidMount -> resultsJson",
+    //   JSON.stringify(resultsJson, null, 2)
+    // );
   };
 
   render() {
@@ -110,18 +115,15 @@ class SubmitData extends Component {
           <div className="transmittingAnimation">
             <div className="loading-screen">
               <div className="loadingScreenTitle">
-                Transmitting Results - Please Wait
+                Survey Complete - Thank You!
               </div>
-              <div className="bars-container">
-                <div className="bar bar-1" />
-                <div className="bar bar-2" />
-                <div className="bar bar-3" />
-                <div className="bar bar-4" />
-                <div className="bar bar-5" />
-                <div className="bar bar-6" />
-                <div className="bar bar-7" />
-                <div className="bar bar-8" />
-              </div>
+              <button
+                className="postSortButton"
+                type="button"
+                onClick={handleClick}
+              >
+                Return
+              </button>
             </div>
           </div>
         </div>
