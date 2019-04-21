@@ -49,7 +49,7 @@ const prepareDataForPost = (commentArrays, surveyResults2) => {
   resultsJson.sortPageDuration = sortTime;
   resultsJson.postSortPageDuration = postSortTime;
   resultsJson.surveyPageDuration = surveyTime;
-  resultsJson.totalProjetTime = totalProjectTime;
+  resultsJson.totalProjectTime = totalProjectTime;
 
   // set up postSort comments in object
   const lookUpTable = {

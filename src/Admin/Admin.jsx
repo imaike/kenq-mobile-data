@@ -80,12 +80,7 @@ const handleEmailButtonClick = () => {
 
 class Admin extends Component {
   render() {
-    const {
-      projectName,
-      email,
-      columnStatements,
-      sortCharacteristics,
-    } = this.props;
+    const { projectName, columnStatements, sortCharacteristics } = this.props;
 
     const loadStatements = localStorage.getItem('loadStatements');
     if (loadStatements !== 'true' || loadStatements === undefined) {
