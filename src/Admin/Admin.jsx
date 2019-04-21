@@ -53,15 +53,18 @@ const handleEmailButtonClick = () => {
   console.log('email click');
   // pullEmailHeader();
   // var link = document.getElementById('email');
-  const emailAddress = 'banasick@gmail.com'; // localStorage.getItem('emailInput');
-  const mail = document.createElement('a');
-  mail.target = '_blank';
-  mail.href =
-    'mailto:' + emailAddress + '?' + 'subject=Ken-Q Mobile Data&body=';
+  state.setState({ displayAdmin: false, displayResults: true });
 
-  // const allResults = localStorage.getItem('allResults');
-  mail.href += 'test'; // allResults;
-  mail.click();
+  // const emailAddress = 'banasick@gmail.com'; // localStorage.getItem('emailInput');
+  // const mail = document.createElement('a');
+  // mail.target = '_blank';
+  // mail.href =
+  //   'mailto:' + emailAddress + '?' + 'subject=Ken-Q Mobile Data&body=';
+
+  // // const allResults = localStorage.getItem('allResults');
+  // mail.href += 'test'; // allResults;
+  // mail.click();
+
   // state.setState({ displayAdmin: true });
 
   // };
@@ -99,14 +102,14 @@ class Admin extends Component {
       <PageContainer>
         <Column1>
           <Column1Button id="emailButton" onClick={handleEmailButtonClick}>
-            Email Results
+            View Results
           </Column1Button>
           <Column1Button
             id="informationButton"
             style={{ paddingLeft: 10 }}
             onClick={handleButtonClick}
           >
-            Information
+            View Information
           </Column1Button>
         </Column1>
         <Column2>
@@ -118,7 +121,7 @@ class Admin extends Component {
             style={{ paddingLeft: 10 }}
             onClick={handleButtonClick}
           >
-            Statements
+            Add Statements
           </Column2Button>
         </Column2>
         <Column3>
@@ -132,17 +135,19 @@ class Admin extends Component {
             />
           </label>
           <label htmlFor="emailAddressInput">
-            Email Address:
+            Participant Name: (optional)
             <input
-              id="emailAddressInput"
+              id="participantNameInput"
               type="text"
-              name="email"
-              defaultValue={email}
+              name="participant"
+              defaultValue="participant name"
             />
           </label>
         </Column3>
         <BeginQsortButton id="goButton" onClick={handleButtonClick}>
-          Start <br /> Q <br /> Sort
+          <span style={{ fontSize: 20 }}>Start</span> <br />
+          <span style={{ fontSize: 110, margin: 0, padding: 0 }}>Q</span> <br />
+          <span style={{ fontSize: 20 }}>Sort</span>
         </BeginQsortButton>
         <ResultsSection>
           <ResultsTitle>Results</ResultsTitle>

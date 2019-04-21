@@ -15,9 +15,10 @@ const handleClick = () => {
 
 const SortCompletedMessageBox = props => {
   // const sortCompleted = useStore(state => state.sortCompleted);
-  const sortCompleted = state.getState('sortCompleted');
+  // const sortCompleted = state.getState('sortCompleted');
+  const sortCompleted = localStorage.getItem('sortCompleted');
 
-  if (sortCompleted) {
+  if (sortCompleted === 'true') {
     return (
       <div>
         <p>{props.sortCompleteText}</p>

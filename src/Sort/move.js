@@ -54,12 +54,15 @@ const move = (
   if (forcedSorts === true) {
     if (match === true) {
       // store.dispatch.setSortCompleted(true);
-      state.setState({ sortCompleted: true });
+      // state.setState({ sortCompleted: true });
+      localStorage.setItem('sortCompleted', 'true');
       // store.dispatch.setIsSortingCards(false);
-      state.setState({ isSortingCards: false });
+      // state.setState({ isSortingCards: false });
+      localStorage.setItem('isSortingCards', 'false');
     } else {
       // store.dispatch.setSortCompleted(false);
-      state.setState({ sortCompleted: false });
+      // state.setState({ sortCompleted: false });
+      localStorage.setItem('sortCompleted', 'false');
     }
   }
   return null;

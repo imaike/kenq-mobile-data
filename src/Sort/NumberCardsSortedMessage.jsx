@@ -11,9 +11,10 @@ const NumberCardsSortedMessage = props => {
   const numSortedStatements = state.getState('numSortedStatements');
 
   // const isSortingCards = useStore(state => state.isSortingCards);
-  const isSortingCards = state.getState('isSortingCards');
+  // const isSortingCards = state.getState('isSortingCards');
+  const isSortingCards = localStorage.getItem('isSortingCards');
 
-  if (isSortingCards) {
+  if (isSortingCards === 'true') {
     return (
       <CardsSortedDiv>
         <p>

@@ -107,6 +107,11 @@ class Sort extends Component {
         JSON.stringify(columnStatements)
       );
 
+      // if (columnStatements.statementList.length === 0) {
+      //   state.setState('isSortingCards', false);
+      //   state.setState('sortCompleted', true);
+      // }
+
       this.forceUpdate();
     }
   }; // end of dragEnd helper function
