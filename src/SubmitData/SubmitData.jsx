@@ -43,7 +43,7 @@ class SubmitData extends Component {
   };
 
   transmitData = () => {
-    const resultsJson = JSON.parse(localStorage.getItem('resultsJson'));
+    const resultsJson = JSON.parse(localStorage.getItem('allResults'));
     // console.log('TCL: SubmitData -> transmitData -> resultsJson', resultsJson);
     // const firebase = window.firebase;
     const participantId = resultsJson.randomId16;
